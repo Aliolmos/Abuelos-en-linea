@@ -1,0 +1,171 @@
+/* Layout: el azul de la tapa de Abuelos en línea, con el celeste del lomo, amarillo y crema: portada, carta de invitación, detalles del libro, autora. Mismo diseño que la página de HAN. */
+:root{
+  --night:#003a68;
+  --violet:#004e8b;
+  --plum:#0a64ad;
+  --dusk:#7fd6f7;
+  --blossom:#02bdf4;
+  --gold:#ffcd29;
+  --gold-deep:#e8a400;
+  --ivory:#f6f6e9;
+  --mist:#cfe3f3;
+  --heart:#f0578c;
+  --line:rgba(255,205,41,.32);
+  --f-display:"Londrina Solid","Segoe UI Black",system-ui,sans-serif;
+  --f-body:"Nunito","Segoe UI",system-ui,sans-serif;
+  --f-label:"Nunito","Segoe UI",system-ui,sans-serif;
+  --f-kr:"Nunito","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--night);color:var(--ivory);
+  font-family:var(--f-body);font-size:1.1rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+#petals{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.label{font-family:var(--f-label);font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:800}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0}
+.gold-text{color:var(--ivory);text-shadow:0 6px 0 rgba(0,0,0,.18)}
+.cyan-text{display:inline-block;margin-top:.12em;padding:.02em .22em .08em;background:var(--blossom);color:var(--ivory);border-radius:.14em;text-shadow:0 4px 0 rgba(0,0,0,.15);box-shadow:0 10px 30px -12px rgba(2,189,244,.7)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:4px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(28px,4vw,44px) clamp(40px,6vw,72px)}
+.hero::before{
+  content:"";position:absolute;inset:-40px;z-index:-3;
+  background:url("portada.webp") center 70%/cover no-repeat;filter:blur(28px) saturate(1.15);opacity:.55;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(0,58,104,.55) 0%,rgba(0,58,104,.35) 50%,var(--night) 100%);
+}
+/* Cielo estrellado de la tapa */
+.stars{position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.75;
+  background-image:
+    radial-gradient(1px 1px at 8% 12%,#fff 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 22% 30%,#fff 50%,transparent 51%),
+    radial-gradient(1px 1px at 35% 8%,#fff 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 47% 22%,#ffcd29 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 58% 6%,#fff 50%,transparent 51%),
+    radial-gradient(1px 1px at 66% 34%,#fff 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 74% 14%,#ffcd29 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 86% 26%,#fff 50%,transparent 51%),
+    radial-gradient(1px 1px at 93% 9%,#fff 50%,transparent 51%),
+    radial-gradient(1px 1px at 14% 48%,#fff 50%,transparent 51%),
+    radial-gradient(1px 1px at 40% 52%,#fff 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 80% 46%,#02bdf4 50%,transparent 51%);
+  animation:twinkle 5s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.45}to{opacity:.85}}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:clamp(28px,4vw,48px);flex-wrap:wrap}
+.nav .brand{font-family:var(--f-label);font-weight:800;letter-spacing:.42em;font-size:.78rem;color:var(--ivory)}
+.nav .brand span{color:var(--gold)}
+.nav a.cta-sm{font-family:var(--f-label);font-weight:700;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);text-decoration:none;border:1px solid var(--line);padding:.6em 1.2em;border-radius:99px;transition:border-color .3s,background .3s}
+.nav a.cta-sm:hover{border-color:var(--gold);background:rgba(255,205,41,.1)}
+
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
+.hero-copy{min-width:0}
+.hero-copy .label{display:block;margin-bottom:1.4rem}
+.hero h1{font-size:clamp(3.6rem,10vw,7rem);line-height:.92;letter-spacing:.01em;font-weight:900}
+.hero .hangul{font-family:var(--f-kr);font-weight:700;font-size:clamp(2rem,4vw,2.8rem);color:var(--gold);margin-left:.15em;vertical-align:top;opacity:.9}
+.hero .subtitle{display:inline-block;font-family:var(--f-display);font-weight:400;font-size:clamp(1.4rem,3vw,2rem);line-height:1.15;color:#1b1b1b;background:var(--gold);padding:.35em .7em .4em;border-radius:14px;transform:rotate(-2deg);margin:1.6rem 0 1.4rem;box-shadow:0 12px 30px -14px rgba(255,205,41,.8)}
+.hero .subtitle-kr{font-family:var(--f-kr);font-size:1.05rem;color:var(--mist);margin:0 0 2rem;letter-spacing:.04em}
+.hero .author{display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-family:var(--f-label);font-weight:800;font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory)}
+.hero .author::before{content:"";width:48px;height:1px;background:var(--gold)}
+.hero .author small{font-family:var(--f-kr);letter-spacing:.05em;text-transform:none;color:var(--mist);font-size:.95rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:2.2rem}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--f-label);font-weight:800;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:1em 1.8em;border-radius:99px;transition:transform .3s,box-shadow .3s,background .3s}
+.btn-gold{background:linear-gradient(135deg,#ffe27a,var(--gold) 50%,var(--gold-deep));color:#1b1b1b;font-weight:800;box-shadow:0 10px 30px -10px rgba(255,205,41,.7)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(255,205,41,.9)}
+
+.book{position:relative;justify-self:center;width:min(100%,340px)}
+.book-inner{position:relative;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.book:hover .book-inner{transform:translateY(-6px)}
+.book img{display:block;width:100%;height:auto;border-radius:3px 8px 8px 3px;
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.75),0 0 0 1px rgba(255,205,41,.3),0 0 90px -10px rgba(2,189,244,.55)}
+.book-inner::before{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;border-radius:3px 0 0 3px;
+  background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(255,255,255,.08) 60%,transparent);z-index:2}
+.book-glow{position:absolute;inset:auto 5% -40px;height:60px;background:radial-gradient(ellipse,rgba(2,189,244,.5),transparent 70%);filter:blur(10px);z-index:-1}
+
+/* ---------- Invitación ---------- */
+.invite{position:relative;padding-block:clamp(40px,6vw,72px)}
+.invite-card{position:relative;max-width:820px;margin:0 auto;text-align:center;padding:clamp(32px,5vw,56px) clamp(22px,6vw,64px);
+  background:linear-gradient(180deg,rgba(10,100,173,.45),rgba(0,78,139,.35));border:2px dashed rgba(127,214,247,.55);border-radius:24px}
+.invite-card::before,.invite-card::after{content:"";position:absolute;width:44px;height:44px;border:2px solid var(--gold)}
+.invite-card::before{top:12px;left:12px;border-right:0;border-bottom:0;border-top-left-radius:14px}
+.invite-card::after{bottom:12px;right:12px;border-left:0;border-top:0;border-bottom-right-radius:14px}
+.seal{width:64px;height:64px;margin:0 auto 1.2rem;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--gold);font-family:var(--f-kr);font-size:1.8rem;font-weight:700;color:var(--gold);
+  box-shadow:inset 0 0 0 5px var(--violet),inset 0 0 0 6px var(--line)}
+.seal svg{width:26px;height:26px}
+.invite h2{font-size:clamp(1.9rem,4.2vw,2.8rem);line-height:1.12;font-weight:400;margin:.8rem 0 1.6rem}
+.invite h2 em{color:var(--blossom);font-style:normal}
+.invite p{max-width:60ch;margin:0 auto 1.1rem;color:var(--ivory);font-size:clamp(1.05rem,1.8vw,1.2rem)}
+.invite p.lead::first-letter{font-family:var(--f-display);font-size:3.4em;float:left;line-height:.8;padding:.08em .12em 0 0;color:var(--gold);font-weight:900}
+.invite p.lead{text-align:left}
+.ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:1.6rem auto;color:var(--heart)}
+.ornament::before,.ornament::after{content:"";height:1px;width:min(110px,22vw);background:linear-gradient(90deg,transparent,var(--gold))}
+.ornament::after{transform:scaleX(-1)}
+.ornament svg{width:20px;height:20px}
+.invite .closing{font-family:var(--f-display);font-style:normal;font-size:clamp(1.6rem,3.4vw,2.3rem);color:var(--gold);margin-top:1.8rem;line-height:1.2}
+
+/* ---------- Detalles ---------- */
+.details{padding-block:clamp(44px,6vw,80px)}
+.section-head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,44px)}
+.section-head h2{font-size:clamp(2rem,4.2vw,2.8rem);line-height:1.1;font-weight:400;margin-top:.8rem}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,28px)}
+.feature{min-width:0;padding:1.6rem 1.6rem 1.8rem;border-top:3px solid var(--gold);border-radius:0 0 18px 18px;background:linear-gradient(180deg,rgba(10,100,173,.42),transparent)}
+.feature svg{width:32px;height:32px;color:var(--gold);margin-bottom:1rem}
+.feature h3{font-size:1.6rem;font-weight:400;line-height:1.15;margin-bottom:.6rem}
+.feature p{margin:0;color:var(--mist);font-size:1.02rem}
+.feature .kr{display:block;margin-top:.8rem;font-family:var(--f-kr);font-size:.9rem;color:var(--dusk)}
+
+/* ---------- Autora ---------- */
+.author-sec{padding-block:clamp(40px,6vw,72px);border-top:1px solid var(--line);
+  background:radial-gradient(ellipse at 20% 50%,rgba(2,189,244,.14),transparent 60%)}
+.author-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(28px,5vw,64px);align-items:center}
+.back-cover{width:min(100%,260px);justify-self:center;margin:0}
+.back-cover img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 30px 70px -25px rgba(0,0,0,.8),0 0 0 1px var(--line)}
+.author-copy{min-width:0}
+.author-copy h2{font-size:clamp(2.1rem,4.6vw,3rem);line-height:1.05;font-weight:400;margin:.8rem 0 .8rem}
+.author-copy .kr-name{font-family:var(--f-kr);color:var(--blossom);font-size:1.15rem;margin-bottom:1.2rem}
+.author-copy p{color:var(--mist);max-width:58ch;margin:0 0 .9rem}
+.author-copy blockquote{margin:1.4rem 0 0;padding-left:1.4rem;border-left:3px solid var(--gold);font-family:var(--f-display);font-style:normal;font-size:clamp(1.3rem,2.4vw,1.55rem);line-height:1.35;color:var(--ivory)}
+.author-copy blockquote span{display:block;margin-top:.5rem;font-family:var(--f-kr);font-style:normal;font-size:1rem;color:var(--gold)}
+
+footer{border-top:1px solid var(--line);padding-block:28px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;font-family:var(--f-label);font-weight:600;font-size:.78rem;letter-spacing:.12em;color:var(--mist)}
+.foot .brand{letter-spacing:.42em;font-weight:800;color:var(--ivory)}
+.foot .brand span{color:var(--gold)}
+
+/* Entrada suave: parte visible, sólo desplaza */
+@keyframes rise{from{transform:translateY(18px)}to{transform:none}}
+.hero-copy>*{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy>*:nth-child(2){animation-delay:.08s}
+.hero-copy>*:nth-child(3){animation-delay:.16s}
+.hero-copy>*:nth-child(4){animation-delay:.24s}
+.hero-copy>*:nth-child(5){animation-delay:.32s}
+.hero-copy>*:nth-child(6){animation-delay:.4s}
+
+@media (max-width:860px){
+  .hero-grid,.author-grid{grid-template-columns:1fr}
+  .book{order:-1;width:min(70%,260px)}
+  .hero-copy{text-align:center}
+  .hero .author,.hero-actions{justify-content:center}
+  .features{grid-template-columns:1fr}
+  .author-copy{text-align:center}
+  .author-copy p{margin-inline:auto}
+  .author-copy blockquote{border-left:0;padding-left:0;border-top:3px solid var(--gold);padding-top:1.2rem}
+  .back-cover{width:min(60%,220px)}
+}
+@media (max-width:480px){
+  .invite p.lead::first-letter{font-size:2.8em}
+  .nav{justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  #petals{display:none}
+}
